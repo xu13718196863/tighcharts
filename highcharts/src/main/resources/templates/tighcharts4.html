@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/highcharts/code/highcharts.js"></script>
+
+</head>
+<body>
+
+<!--container-->
+<div id="divid" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+</body>
+<script>
+
+    $.ajax({
+        url: "../tig4",
+        dataType: "json",
+        success: function (data) {
+            var chart = Highcharts.chart('divid', {
+            chart: {
+                polar: true
+            },
+            title: {
+                text: '书籍数量图'
+            },
+            pane: {
+                startAngle: 0,
+                    endAngle: 17
+            },
+            xAxis: {
+                tickInterval: 2,
+                    min: 9,
+                    max: 17,
+                    labels: {
+                    formatter: function () {
+                        return this.value + 'h';
+                    }
+                }
+            },
+            yAxis: {
+                min: 0
+            },
+            plotOptions: {
+                series: {
+                    pointStart: 0,
+                        pointInterval:6
+                },
+                column: {
+                    pointPadding: 0,
+                        groupPadding: 0
+                }
+            },
+            series:data
+        });
+        }
+    })
+</script>
+
+</html>

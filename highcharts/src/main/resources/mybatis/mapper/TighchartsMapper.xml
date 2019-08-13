@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.TighchartsMapper" >
+
+    <select id="tig1" resultType="java.util.LinkedHashMap">
+     SELECT type 类型,count(*) 数量 FROM tighcharts
+                group by DATE_FORMAT(ddate,'%Y'),type
+
+    </select>
+
+    <select id="tig2" resultType="java.util.LinkedHashMap">
+        SELECT DATE_FORMAT(ddate,'%c')  月份,count(*) 数量 FROM tighcharts
+            group by  DATE_FORMAT(ddate,'%c')
+
+    </select>
+
+
+
+
+    <select id="tig3" resultType="java.util.LinkedHashMap">
+        SELECT count(*) 数量 FROM tighcharts
+            group by  DATE_FORMAT(ddate,'%a')
+    </select>
+
+
+    <select id="tig4" resultType="java.util.LinkedHashMap">
+       SELECT type 类型,count(*) 数量 FROM tighcharts
+            group by DATE_FORMAT(ddate,'%H')
+    </select>
+
+</mapper>
