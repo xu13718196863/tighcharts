@@ -44,6 +44,8 @@ public class TighchartsController {
     @RequestMapping("tig1")
     @ResponseBody
     public  List<Map<String,Object>>   tig1(){
+        System.out.println(456);
+        System.out.println(225);
         List<Map<String,Object>> list=t.tig1();
         List<Map<String,Object>>  map=new ArrayList<>();
 
