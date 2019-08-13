@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.TreeDao" >
+
+    <!--权限树 -->
+    <select id="getTree" parameterType="int" resultType="com.jk.model.Tree">
+        SELECT t.* from  jiaose5 j, tree5 t, j_t5 jt ,user5 u, u_j5 uj
+    where jt.jid=j.id and jt.tid = t.id  and  uj.uid = u.id and uj.jid= j.id
+    and u.id=#{id}  group by text
+    </select>
+
+
+</mapper>
